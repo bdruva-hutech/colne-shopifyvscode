@@ -236,7 +236,7 @@
         "link_3": "shopify://policies/privacy-policy",
         "show_button_3": true,
         "button_text_3": "Shop Now",
-        "button_position_1": "center",
+        "button_position_1": "top-center",
         "button_position_2": "center",
         "button_position_3": "center",
         "slider_width": "full",

@@ -1,6 +1,12 @@
 <h2 class="section-title">Contact Us</h2>
+
 {% form 'contact' %}
-  {{ form.errors | default_errors }}
+  {%- if form.posted_successfully? -%}
+    <p>posted_successfully</p>
+  {%- elsif form.errors -%}
+    {{ form.errors | default_errors }}
+  {%- endif -%}
+
   <div className="first-name">
     <label htmlFor="first-name">First name</label>
     <input type="text" name="contact[first_name]" placeholder="Enter your first name" id="first-name">
@@ -23,6 +29,10 @@
   <div className="order-number">
     <label htmlFor="order-number">Order number</label>
     <input type="text" name="contact[order_number]" id="order-number">
+  </div>
+  <div className="urgent-issue">
+    <label htmlFor="urgent-issue">This is Urgent issue</label>
+    <input type="checkbox" name="contact[urgent_issue]" id="urgent-issue">
   </div>
 
   <div className="message">

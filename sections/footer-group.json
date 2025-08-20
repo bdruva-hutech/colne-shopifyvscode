@@ -14,7 +14,14 @@
     "custom_contact_jy9P3Y": {
       "type": "custom-contact",
       "name": "custom contact",
-      "settings": {}
+      "settings": {
+        "heading": "Emergency Contact",
+        "show_first_name": true,
+        "show_second_name": true,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "footer": {
       "type": "footer",

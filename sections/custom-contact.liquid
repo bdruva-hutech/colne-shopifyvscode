@@ -1,11 +1,45 @@
+<h2 class="section-title">Contact Us</h2>
+{% form 'contact' %}
+  {{ form.errors | default_errors }}
+  <div className="first-name">
+    <label htmlFor="first-name">First name</label>
+    <input type="text" name="contact[first_name]" placeholder="Enter your first name" id="first-name">
+  </div>
+
+  <div className="last-name">
+    <label htmlFor="last-name">Last name</label>
+    <input type="text" name="contact[last_name]" placeholder="Enter your last name" id="last-name">
+  </div>
+
+  <div className="phone">
+    <label htmlFor="phone">Phone</label>
+    <input type="tel" name="contact[phone]" placeholder="Enter your phone number" id="phone">
+  </div>
+
+  <div className="email">
+    <label htmlFor="email">Email</label>
+    <input type="email" name="contact[email]" placeholder="Enter your email" id="email">
+  </div>
+  <div className="order-number">
+    <label htmlFor="order-number">Order number</label>
+    <input type="text" name="contact[order_number]" id="order-number">
+  </div>
+
+  <div className="message">
+    <label htmlFor="message">Message</label>
+    <textarea name="contact[message]" placeholder="Enter your message" id="message"></textarea>
+  </div>
+  <div>
+    <button type="submit" class="btn">Send</button>
+  </div>
+{% endform %}
 
 {% schema %}
 {
   "name": "custom contact",
   "tag": "section",
   "class": "section",
-  "settings": [
-  ],
+  "settings": [],
   "presets": [
     {
       "name": "custom contact"

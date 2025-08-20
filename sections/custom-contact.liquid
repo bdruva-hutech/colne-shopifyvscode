@@ -133,46 +133,54 @@
     {%- endform -%}
   </div>
 {% endcomment %}
-<div class="custom-contact-form">
-  {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
-    <div class="form-grid">
-      <!-- First Name -->
-      <div class="field">
-        <input type="text" id="ContactFormFirstName" name="contact[first_name]" placeholder="First Name" required>
+<div
+  class="contact-section"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="custom-contact-form">
+    {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
+      <div class="form-grid">
+        <!-- First Name -->
+        <div class="field">
+          <input type="text" id="ContactFormFirstName" name="contact[first_name]" placeholder="First Name" required>
+        </div>
+
+        <!-- Last Name -->
+        <div class="field">
+          <input type="text" id="ContactFormLastName" name="contact[last_name]" placeholder="Last Name" required>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email *" required>
+        </div>
+
+        <!-- Phone full width -->
+        <div class="field">
+          <input
+            type="tel"
+            id="ContactFormPhone"
+            name="contact[phone]"
+            placeholder="Phone Number"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            required
+          >
+        </div>
       </div>
 
-      <!-- Last Name -->
+      <!-- Message full width -->
       <div class="field">
-        <input type="text" id="ContactFormLastName" name="contact[last_name]" placeholder="Last Name" required>
+        <textarea id="ContactFormMessage" name="contact[body]" rows="6" placeholder="Message"></textarea>
       </div>
 
-      <!-- Email -->
-      <div class="field">
-        <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email *" required>
-      </div>
-
-      <!-- Phone full width -->
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactFormPhone"
-          name="contact[phone]"
-          placeholder="Phone Number"
-          pattern="[0-9]{10}"
-          maxlength="10"
-          required
-        >
-      </div>
-    </div>
-
-    <!-- Message full width -->
-    <div class="field">
-      <textarea id="ContactFormMessage" name="contact[body]" rows="6" placeholder="Message"></textarea>
-    </div>
-
-    <!-- Submit -->
-    <button type="submit" class="btn">Send</button>
-  {%- endform -%}
+      <!-- Submit -->
+      <button type="submit" class="btn">Send</button>
+    {%- endform -%}
+  </div>
 </div>
 
 {% schema %}

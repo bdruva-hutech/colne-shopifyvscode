@@ -243,17 +243,6 @@
         "color_scheme": "light",
         "pagination_style": "dots"
       }
-    },
-    "contact_form_edxXPr": {
-      "type": "contact-form",
-      "name": "t:sections.contact-form.presets.name",
-      "settings": {
-        "heading": "Contact form",
-        "heading_size": "h1",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -263,7 +252,6 @@
     "collage",
     "video",
     "multicolumn",
-    "image_slider_show_txkqnc",
-    "contact_form_edxXPr"
+    "image_slider_show_txkqnc"
   ]
 }

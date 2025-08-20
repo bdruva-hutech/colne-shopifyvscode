@@ -1,95 +1,177 @@
 {{ 'custom-contact.css' | asset_url | stylesheet_tag }}
 
-<div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-  {%- if section.settings.heading != blank -%}
-    <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}">
-      {{ section.settings.heading }}
-    </h2>
-  {%- endif -%}
-
-  {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
-    <!-- Success & Error Messages -->
-    {%- if form.posted_successfully? -%}
-      <h2 class="form-status form-status-list form__message">
-        {{ 'templates.contact.form.post_success' | t }}
+{% comment %}
+  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
       </h2>
     {%- endif -%}
 
-    <div class="contact__fields">
-      <!-- First Name -->
-      {% if section.settings.show_first_name %}
-        <div class="field">
-          <input
-            type="text"
-            id="ContactFormFirstName"
-            class="field__input"
-            name="contact[first_name]"
-            placeholder="Enter your first name"
-            required
-          >
-          <label class="field__label" for="ContactFormFirstName">First Name</label>
-        </div>
-      {% endif %}
+    {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
+      <!-- Success & Error Messages -->
+      {%- if form.posted_successfully? -%}
+        <h2 class="form-status form-status-list form__message">
+          {{ 'templates.contact.form.post_success' | t }}
+        </h2>
+      {%- endif -%}
 
-      <!-- Second Name -->
-      {% if section.settings.show_second_name %}
+      <div class="contact__fields">
+        <!-- First Name -->
+        {% if section.settings.show_first_name %}
+          <div class="field">
+            <input
+              type="text"
+              id="ContactFormFirstName"
+              class="field__input"
+              name="contact[first_name]"
+              placeholder="Enter your first name"
+              required
+            >
+            <label class="field__label" for="ContactFormFirstName">First Name</label>
+          </div>
+        {% endif %}
+
+        <!-- Second Name -->
+        {% if section.settings.show_second_name %}
+          <div class="field">
+            <input
+              type="text"
+              id="ContactFormSecondName"
+              class="field__input"
+              name="contact[second_name]"
+              placeholder="Enter your last name"
+            >
+            <label class="field__label" for="ContactFormSecondName">Last Name</label>
+          </div>
+        {% endif %}
+      </div>
+      <div class="contact__fields">
+        <!-- Email -->
         <div class="field">
           <input
-            type="text"
-            id="ContactFormSecondName"
+            type="email"
+            id="ContactForm-email"
             class="field__input"
-            name="contact[second_name]"
-            placeholder="Enter your last name"
+            name="contact[email]"
+            required
+            placeholder="Enter your email"
           >
-          <label class="field__label" for="ContactFormSecondName">Last Name</label>
+          <label class="field__label" for="ContactForm-email">Email</label>
         </div>
-      {% endif %}
+
+        <!-- Phone Number -->
+        <div class="field">
+          <input
+            type="tel"
+            id="ContactFormPhone"
+            class="field__input"
+            name="contact[phone]"
+            required
+            pattern="[0-9]{10}"
+            maxlength="10"
+            placeholder="Enter 10-digit number"
+          >
+          <label class="field__label" for="ContactFormPhone">Phone Number</label>
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="field">
+        <textarea
+          id="ContactForm-body"
+          class="text-area field__input"
+          name="contact[body]"
+          rows="6"
+          placeholder="Enter your message"
+          required
+        ></textarea>
+        <label class="field__label" for="ContactForm-body">Message</label>
+      </div>
+
+      <div class="contact__button">
+        <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
+      </div>
+    {%- endform -%}
+  </div>
+{% endcomment %}
+{% comment %}
+  <div class="custom-contact-form">
+    {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
+      <div class="form-grid">
+        <!-- First Name -->
+        <div class="field">
+          <input type="text" id="ContactFormFirstName" name="contact[first_name]" placeholder="First Name" required>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email *" required>
+        </div>
+      </div>
+
+      <!-- Phone full width -->
+      <div class="field">
+        <input
+          type="tel"
+          id="ContactFormPhone"
+          name="contact[phone]"
+          placeholder="Phone Number"
+          pattern="[0-9]{10}"
+          maxlength="10"
+          required
+        >
+      </div>
+
+      <!-- Message full width -->
+      <div class="field">
+        <textarea id="ContactFormMessage" name="contact[body]" rows="6" placeholder="Message"></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn">Send</button>
+    {%- endform -%}
+  </div>
+{% endcomment %}
+<div class="custom-contact-form">
+  {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
+    <div class="form-grid">
+      <!-- First Name -->
+      <div class="field">
+        <input type="text" id="ContactFormFirstName" name="contact[first_name]" placeholder="First Name" required>
+      </div>
+
+      <!-- Last Name -->
+      <div class="field">
+        <input type="text" id="ContactFormLastName" name="contact[last_name]" placeholder="Last Name" required>
+      </div>
 
       <!-- Email -->
       <div class="field">
+        <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email *" required>
+      </div>
+
+      <!-- Phone full width -->
+      <div class="field">
         <input
-          type="email"
-          id="ContactForm-email"
-          class="field__input"
-          name="contact[email]"
+          type="tel"
+          id="ContactFormPhone"
+          name="contact[phone]"
+          placeholder="Phone Number"
+          pattern="[0-9]{10}"
+          maxlength="10"
           required
-          placeholder="Enter your email"
         >
-        <label class="field__label" for="ContactForm-email">Email</label>
       </div>
     </div>
 
-    <!-- Phone Number -->
+    <!-- Message full width -->
     <div class="field">
-      <input
-        type="tel"
-        id="ContactFormPhone"
-        class="field__input"
-        name="contact[phone]"
-        required
-        pattern="[0-9]{10}"
-        maxlength="10"
-        placeholder="Enter 10-digit number"
-      >
-      <label class="field__label" for="ContactFormPhone">Phone Number</label>
+      <textarea id="ContactFormMessage" name="contact[body]" rows="6" placeholder="Message"></textarea>
     </div>
 
-    <!-- Message -->
-    <div class="field">
-      <textarea
-        id="ContactForm-body"
-        class="text-area field__input"
-        name="contact[body]"
-        rows="6"
-        placeholder="Enter your message"
-        required
-      ></textarea>
-      <label class="field__label" for="ContactForm-body">Message</label>
-    </div>
-
-    <div class="contact__button">
-      <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
-    </div>
+    <!-- Submit -->
+    <button type="submit" class="btn">Send</button>
   {%- endform -%}
 </div>
 

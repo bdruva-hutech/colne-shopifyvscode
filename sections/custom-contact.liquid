@@ -141,6 +141,11 @@
   "
 >
   <div class="custom-contact-form">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
     {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
       <div class="form-grid">
         <!-- First Name -->

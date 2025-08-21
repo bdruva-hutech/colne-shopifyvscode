@@ -22,6 +22,16 @@
   flex-direction: column;
   margin-bottom: 15px;
 }
+.custom-contact-form .field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  min-height: 150px; /* Increased height for larger textarea */
+  grid-column: 1 / 3; /* Span across both columns */
+}
 
 .custom-contact-form input,
 .custom-contact-form textarea {
@@ -57,9 +67,6 @@
   .custom-contact-form .form-grid {
     grid-template-columns: 1fr; /* stack inputs on smaller screens */
     margin: 10px; /* Reduced margin for narrower screens */
-  }
-  .custom-contact-form .field {
-    box-sizing: inherit;
   }
 }
 /* .custom-contact-form {

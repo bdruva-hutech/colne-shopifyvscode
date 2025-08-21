@@ -4,6 +4,12 @@
   margin: auto;
   overflow: auto;
 }
+.custom-contact-form h2.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
 
 .custom-contact-form .form-grid {
   display: grid;

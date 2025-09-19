@@ -1,0 +1,4 @@
+button#checkout {
+background-color: #AD2D2D!important;
+color:#000000;
+}
